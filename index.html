@@ -54,6 +54,41 @@ controls.update();
 
 
 
+let sky;
+const loader = new GLTFLoader();
+loader.load("free_colorful_sci_fi_skybox (1).glb",function(gltf){
+
+sky = gltf.scene;
+sky.scale.setScalar(1000);
+scene.add(sky);
+	
+});
+
+
+
+const light = new THREE.DirectionalLight("orangered",1);
+light.positon.y = 100;
+scene.add(light);
+
+
+			
+
+const g = new THREE.PlaneGeometry(1000,1000);
+const m = new THREE.MeshStandardMaterial();
+const ground = new THREE.Mesh( g, m );
+ground.rotation.x = -0.5 * Math.PI;
+scene.add( ground );
+
+
+
+
+
+
+
+
+
+			
+
 const textureLoader = new THREE.TextureLoader();
 const cubeMap = textureLoader.load(
 "chess-world.jpg" );
