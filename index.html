@@ -9,13 +9,7 @@
 			  display:none;
 			  position: absolute;
 			}
-			button{
-			  position: absolute;
-			  border: none;
-			  background: black;
-			  color: white;
-			  padding: 2%;
-			}
+			
 		</style>
 				<script type="importmap">
 			{
@@ -29,19 +23,28 @@
 	</head>
 	<body>
 		
-	  /*<button id="refresh">Refresh</button>*/
+	  
 		
 	  <video id="video"></video>
 		<script type="module">
 			import * as THREE from 'three';
-			import { OrbitControls} from 'three/addons/controls/OrbitControls.js'
+			import { OrbitControls} from 'three/addons/controls/OrbitControls.js';
+			import {RGBELoader} from 'three/addons/loaders/RGBELoader.js';
+			import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+			import {VRButton} from 'three/addons/webxr/VRButton.js';
+
+			
 
 			const scene = new THREE.Scene();
 			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
 			const renderer = new THREE.WebGLRenderer({antialias:true});
+			renderer.xr.enabled = true;
+			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
+			document.body.appendChild(VRButton.createButton(renderer));
+			
 
 
 
@@ -57,8 +60,8 @@ const cubeMap = textureLoader.load(
 cubeMap.mapping = THREE.EquirectangularReflectionMapping;
 
 
-scene.background = cubeMap; 
-scene.enviroment = cubeMap;
+//scene.background = cubeMap; 
+//scene.enviroment = cubeMap;
 
 
 
@@ -70,15 +73,6 @@ v.src = "TMNT.mp4";
 
 v.loop = true;
 v.volume = 1;
-
-
-document.getElementById('refresh').addEventListener('click',function(){
-  
-  
-//v.src = "/package/PV/"+ Math.round(Math.random() * 26) +".mp4";  
-  
-  
-});
 
 
 
@@ -121,7 +115,7 @@ const vt = new THREE.VideoTexture(v);
 
 
 			function animate() {
-				requestAnimationFrame( animate );
+			renderer.setAnimationLoop( animate );
 
 				
 				v.play();
