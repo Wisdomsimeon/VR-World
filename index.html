@@ -107,7 +107,7 @@ cubeMap.mapping = THREE.EquirectangularReflectionMapping;
 
 
 const v = document.getElementById('video');
-v.src = "Anim4RivetNSFW_WEBM.webm";
+v.src = "TMNT.mp4";
 
 
 v.loop = true;
@@ -127,10 +127,10 @@ const vt = new THREE.VideoTexture(v);
 
 
 
-			const geometry = new THREE.PlaneGeometry(4,5);
+			const geometry = new THREE.PlaneGeometry(2,4);
 			const material = new THREE.MeshBasicMaterial( {map:vt} );
 			const tv = new THREE.Mesh( geometry, material );
-			tv.position.set(0,2,-2.5);
+			tv.position.set(0,1.60,-2.5);
 			scene.add( tv );
 
 
