@@ -66,8 +66,13 @@ scene.add(sky);
 
 
 
-const light = new THREE.DirectionalLight("orangered",1);
+const light = new THREE.DirectionalLight("white",1.5);
+light.position.set(0,10,0);
 scene.add(light);
+
+const light2 = new THREE.AmbientLight("white",1);
+light2.position.set(0,10,0);
+scene.add(light2);
 
 
 			
