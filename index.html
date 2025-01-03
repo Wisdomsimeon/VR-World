@@ -127,7 +127,7 @@ const vt = new THREE.VideoTexture(v);
 
 
 
-			const geometry = new THREE.PlaneGeometry(2,4);
+			const geometry = new THREE.PlaneGeometry(4,2);
 			const material = new THREE.MeshBasicMaterial( {map:vt} );
 			const tv = new THREE.Mesh( geometry, material );
 			tv.position.set(0,1.60,-2.5);
