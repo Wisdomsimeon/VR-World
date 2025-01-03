@@ -67,11 +67,11 @@ scene.add(sky);
 
 
 const light = new THREE.DirectionalLight("white",1.5);
-light.position.set(0,10,0);
+light.position.set(0,100000,0);
 scene.add(light);
 
 const light2 = new THREE.AmbientLight("white",1);
-light2.position.set(0,10,0);
+light2.position.set(0,100000,0);
 scene.add(light2);
 
 
@@ -81,7 +81,7 @@ const g = new THREE.PlaneGeometry(1000,1000);
 const m = new THREE.MeshStandardMaterial({color:"green",shininess:10,roughness:0,metalness:5});
 const ground = new THREE.Mesh( g, m );
 ground.rotation.x = -0.5 * Math.PI;
-scene.add( ground );
+//scene.add( ground );
 
 
 
